@@ -12,6 +12,10 @@ Per configurarlo su di una propria applicazione web, seguire i seguenti passi:
 
 3) Inserire all'interno della directory "insert-here-yuor-web-app" la cartella contenente il progetto della propria applicazione web.
 
+3a) Per rendere eseguibile l'action a seguito del cambio di nome della repository bisogna modificare i seguenti path:
+  - nel file "Tesi-injector/plugin/src/main/java/com/mypacakge/Application.java va cambiato ogni path che fa rifirmento a "Tesi-StrumentoGenerale" con il nome della nuova repository, in questo caso ad esempio "/home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale/test-hooks/test-guard" diventa /home/runner/work/A1-ContactList/test-hooks/test-guard"
+
+3b) Le stesse modifiche devono essere fatte nel workflow "main.yml" ogni riferimento a "Tesi-StrumentoGenerale" va cambiato con il nuovo nome della Repository. Ad esempio "cd /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale" diventa "cd /home/runner/work/A1-ContactList"
 
 4) Creare il virtual environment “envForGithubActions” 
 
