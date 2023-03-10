@@ -1,142 +1,117 @@
-Strumento Generale sviluppato nella tesi di laurea.
+To configure it for your own web application, follow these steps:
 
+1) Fork this repository.
 
+2) After creating your repository (via fork), clone the created repository locally.
 
-Per configurarlo su di una propria applicazione web, seguire i seguenti passi:
+3) Insert the folder containing your web application project inside the "insert-here-your-web-app" directory.
 
-1) Fare la fork del seguente repository: https://github.com/gianlucat97/Tesi-StrumentoGenerale.git
+3a) To make the action executable after changing the name of the repository, you must modify the following paths:
 
+	- In the file "Tesi-injector/plugin/src/main/java/com/mypackage/Application.java", change each path that refers to "Tesi-StrumentoGenerale" with the name of the new repository.
+	- In this case, for example, "/home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale/test-hooks/test-guard" becomes "/home/runner/work/A1-ContactList/test-hooks/test-guard".
 
-2) Dopo aver creato il proprio repository (tramite la fork), fare la clone in locale del repository creato.
+3b) The same modifications must be made in the "main.yml" workflow, where every reference to "Tesi-StrumentoGenerale" must be changed to the new name of the repository.
+	- For example, "cd /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale" becomes "cd /home/runner/work/A1-ContactList".
 
+4) Create the virtual environment "envForGithubActions".
 
-3) Inserire all'interno della directory "insert-here-yuor-web-app" la cartella contenente il progetto della propria applicazione web.
+5) Insert the following 6 environment variables, customizing the example values shown here based on your use case:
 
-3a) Per rendere eseguibile l'action a seguito del cambio di nome della repository bisogna modificare i seguenti path:
-  - nel file "Tesi-injector/plugin/src/main/java/com/mypacakge/Application.java va cambiato ogni path che fa rifirmento a "Tesi-StrumentoGenerale" con il nome della nuova repository, in questo caso ad esempio "/home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale/test-hooks/test-guard" diventa /home/runner/work/A1-ContactList/test-hooks/test-guard"
+	EMAIL_ACCOUNT_GITHUB: t*********@gmail.com
+	NOME_ACCOUNT_GITHUB: g*********
+	PASSWORD_ACCOUNT_GITHUB: *********
+	FE_EXTENSION_TYPE: .html
+	GRAMMAR_TYPE: angularjs
+	DIR_FILE_FE: /home/runner/work/your-repo-name/insert-here-your-web-app/root-frontend-web-app
+	
+	Note: The allowed GRAMMAR_TYPE values are: ['angularjs', 'html', 'php', 'smarty', 'twig', 'freemarker']
 
-3b) Le stesse modifiche devono essere fatte nel workflow "main.yml" ogni riferimento a "Tesi-StrumentoGenerale" va cambiato con il nuovo nome della Repository. Ad esempio "cd /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale" diventa "cd /home/runner/work/A1-ContactList"
+6) Customize the startBackEnd.sh and startFrontEnd.sh files based on your use case. Here are some examples:
 
-4) Creare il virtual environment “envForGithubActions” 
+	startBackEnd.sh:
+	echo "Start preconditions installation commands"
+	sudo apt update
+	sudo apt install openjdk-11-jdk openjdk-11-jre
+	echo "Installed Java version number"
+	java -version
+	
+	echo "Start Backend execution commands"
+	cd /home/runner/work/your-repo-name/insert-here-your-web-app/root/backend
+	mvn clean install
+	cd /home/runner/work/your-repo-name/insert-here-your-web-app/root/backend/target
+	echo "See which jar files are in the target folder"
+	ls -a
+	java -jar backend-0.0.1-SNAPSHOT.jar &
+	
+	startFrontEnd.sh:
+	echo "Start preconditions installation commands"
+	cd /home/runner/work/your-repo-name
+	curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+	cat nodesource_setup.sh
+	sudo bash nodesource_setup.sh
+	sudo apt install nodejs
+	echo "Installed Node version"
+	node -v
+	echo "Install npm"
+	sudo apt install npm
+	echo "Finished installing Node"
+	
+	echo "Start Frontend execution commands"
+	cd /home/runner/work/your-repo-name/insert-here-your-web-app/root/frontend
+	echo "We are in the FE directory, let's try to run it"
+	npm install
+	echo "npm installation completed, next command: npm start"
+	npm start &
 
+7) Go to the "Actions" tab and activate the "Workflows" by clicking the "I understand my workflows, go ahead and enable them" button.
 
-5) Inserire le seguenti 6 variabili d'ambiente, customizzando i valori di esempio qui riportati in base al proprio caso d'uso:
+8) Make a modification to a txt file and push it (e.g. add a character to readme.txt) to trigger the execution of the mainOnPush.yml file.
 
-EMAIL_ACCOUNT_GITHUB: t*********@gmail.com
-NOME_ACCOUNT_GITHUB: g*********
-PASSWORD_ACCOUNT_GITHUB: *********
-FE_EXTENSION_TYPE: .html
-GRAMMAR_TYPE: angularjs
-DIR_FILE_FE: /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale/insert-here-your-web-app/root-frontend-web-app
+9) Wait for the mainOnPush.yml file to finish executing, which is responsible for hook injection within the FE files.
 
-NB: I GRAMMAR_TYPE consentiti sono: ['angularjs', 'html', 'php', 'smarty', 'twig', 'freemarker']
+10) Pull locally to also have the FE files with injected locators on your own machine.
 
+11) Run the web application locally.
 
-6) Customizzare i file startBackEnd.sh e startFrontEnd.sh, in base al proprio caso d'uso.
-Vediamo degli esempi, 
+12) Open Katalon Recorder and add the "attributeHooksLocators.js" file, which can be found in the current repository, to the "Extension script" section.
 
-startBackEnd.sh:
-echo "Inizio comandi installazione precondizioni"
-sudo apt update
-sudo apt install openjdk-11-jdk openjdk-11-jre
-echo "Installata versione di java numero"
-java -version 
+13) Record test cases with Katalon Recorder and export them in JUnit + WebDriver mode.
 
-echo "Inizio comandi esecuzione Backend"
-cd /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale/insert-here-your-web-app/root/backend
-mvn clean install
-cd /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale/insert-here-your-web-app/root/backend/target
-echo "Vediamo quali file jar si trovano in cartella target"
-ls -a
-java -jar backend-0.0.1-SNAPSHOT.jar &
+14) A zip file will be obtained, extract the contents of the file and push only the extracted test files (with .java extension) inside the ./project-test-headless/src/test/java/com/example/TesiIntegrazioneProgettoEsterno/ directory.
 
+15) The push will trigger the execution of the mainOnPush.yml file, which will correct the format of the pushed test files (in order to make them executable within a container). Wait for its execution to finish.
 
-startFrontEnd.sh:
-echo "Inizio comandi installazione precondizioni"
-cd /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale
-curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
-cat nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt install nodejs
-echo "versione di node installata"
-node -v
-echo "Installazione di npm"
-sudo apt install npm
-echo "Fine comandi installazione Node"
+16) Create a new release, triggering the execution of the main.yml file.
 
-echo "Inizio comandi esecuzione Frontend"
-cd /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale/insert-here-your-web-app/root/frontend
-echo "Siamo nella directory FE, proviamo a lanciarlo in esecuzione"
-npm install
-echo "Installazione npm effettuata, prossimo comando: npm start"
-npm start &
+17) At the end of the execution of the main.yml file, all auto-generated reports related to the executed regression tests will be found within the ./TestSuite/nomeTagCreato directory of the created tag.
 
+Note: Do not insert special characters in the tag name, such as the period ".". Use tags like "v1_0-Hooks" instead of tags like "v1.0-Hooks".
 
-7) Andare nel tab "Actions" ed attivare i "Workflows" cliccando sul button "I understand my workflows, go ahead and enable them".
+Subsequent iterations in the web application development cycle:
 
-
-8) Fare una modifica ad un file txt e pushare (e.g. aggiungere un carattere al readme.txt), in modo da triggerare l'esecuzione del file mainOnPush.yml
-
-
-9) Attendere il termine dell'esecuzione del file mainOnPush.yml, il quale si occupa di fare la hook-injection all'interno dei file di FE.
-
-
-10) Fare la pull in locale, in modo da poter avere anche sulla propria macchina i file di FE con i localizzatori iniettati.
-
-
-11) Eseguire l'applicazione web in locale
-
-
-12) Aprire Katalon Recorder e nella sezione "Extension script" aggiungere il file "attributeHooksLocators.js" reperibile nel corrente repository.
-
-
-13) Registrare casi di test con Katalon Recorder ed esportarli in modalita (JUnit + WebDriver)
-
-
-14) Si otterrà un file zip, estrarre il contenuto del file e pushare all'interno della directory ./project-test-headless/src/test/java/com/example/TesiIntegrazioneProgettoEsterno/
-solamente i file di test (con estensione .java) estratti
-
-
-15) Al push verrà triggerata l'esecuzione del file mainOnPush.yml che si occuperà di correggere il formato
-dei file di test pushati (in modo da renderli eseguibili all'interno di un container), attendere quindi il termine della sua esecuzione
-
-
-16) Creare una nuova release, triggerando quindi l'esecuzione del file main.yml
-
-
-17) Al termine dell'esecuzione del file main.yml, all'interno del tag creato, nella directory ./TestSuite/nomeTagCreato si troveranno tutti i report autogenerati inerenti ai test di regressione eseguiti.
-
-NB: Non bisogna inserire metacaratteri nel nome di un tag, come per esempio il punto "."
-usare quindi tag del tipo "v1_0-Hooks" e non tag come "v1.0-Hooks"
-
-
-Successive iterazioni nel ciclo di sviluppo dell'applicativo web:
-
-1) Fare una pull, per avere sempre allineato il progetto in locale con il remote.
-
-2) Scrivere nuovo codice web app.
-
-3) Pushare le modifiche effettuate.
-
-4) Attendere che il file mainOnPush termini la sua esecuzione (si occupa di iniettare nuovamente gli hooks a valle delle modifiche).
-
-5) Eseguire la pull (per avere anche in locale i file di FE con gli hooks aggiornati).
-
-6) Rieseguire applicazione web in locale.
-
-7) Registrare nuovi casi di test con Katalon Recorder.
-
-8) Esportare i nuovi casi di test (in Katalon in formato WebDriver+JUnit) e pushare i file (.java) ottenuti nella cartella
-./project-test-headless/src/test/java/com/example/TesiIntegrazioneProgettoEsterno/
-
-9) Attendere che il file mainOnPush.yml termini la sua esecuzione (si occupa di rendere i nuovi file di test eseguibili in modalità headless).
-
-10) Creazione nuova release.
-
-11) Attendere esecuzione file main.yml (che va ad eseguire ed autogenerare la reportistica dei test di regressione).
-
-12) Nella directory ./TestSuite/nomeTagCreato si troveranno tutti i report autogenerati inerenti ai test di regressione eseguiti.
-Analizzare il report in formato ".xls" ed andare a correggere e/o eliminare i test rotti.
-
-13) Tornare al punto 1, se non è ancora terminato il ciclo di sviluppo dell'applicativo web.
-
+	1) Pull to always have the local project aligned with the remote.
+	
+	2) Write new web app code.
+	
+	3) Push the changes made.
+	
+	4) Wait for the mainOnPush file to finish executing (it takes care of re-injecting the hooks downstream of the changes).
+	
+	5) Perform the pull (to also have the FE files with updated hooks locally).
+	
+	6) Re-run the web application locally.
+	
+	7) Record new test cases with Katalon Recorder.
+	
+	8) Export the new test cases (in Katalon in WebDriver + JUnit format) and push the resulting files (.java) in the ./project-test-headless/src/test/java/com/example/TesiIntegrazioneProgettoEsterno/ folder.
+	
+	9) Wait for the mainOnPush.yml file to finish executing (it makes the new test files executable in headless mode).
+	
+	10) Create a new release.
+	
+	11) Wait for the execution of the main.yml file (which executes and auto-generates the regression test reports).
+	
+	12) All auto-generated reports related to the executed regression tests will be found in the ./TestSuite/nomeTagCreato directory. Analyze the report in ".xls" format and go to fix and/or delete any broken tests.
+	
+	13) Return to step 1 if the web application development cycle is not yet finished.
