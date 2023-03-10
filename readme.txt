@@ -1,4 +1,4 @@
-To configure it for your own web application, follow these steps:
+##To configure it for your own web application, follow these steps:
 
 1) Fork this repository.
 
