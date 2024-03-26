@@ -6,7 +6,7 @@ name: Github Actions - mainOnPush
 # Controls when the workflow will run
 on:
   push:
-    branches: 
+    branches:
       - '**'      # matches every branches
 
 
