@@ -1,37 +1,37 @@
 -------------------------------------------------------------------------------
 Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_Rel
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.086 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_Rel
-test_loc_Rel_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Rel)  Time elapsed: 1.057 s  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.165 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_Rel
+test_loc_Rel_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Rel)  Time elapsed: 1.124 s  <<< ERROR!
 org.openqa.selenium.SessionNotCreatedException: 
 session not created: This version of ChromeDriver only supports Chrome version 114
 Current browser version is 123.0.6312.58 with binary path /usr/bin/google-chrome
 Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
-System info: host: 'fv-az1205-52', ip: '10.1.0.84', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1016-azure', java.version: '1.8.0_402'
+System info: host: 'fv-az566-840', ip: '10.1.0.93', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1016-azure', java.version: '1.8.0_402'
 Driver info: driver.version: ChromeDriver
-remote stacktrace: #0 0x55ae125304e3 <unknown>
-#1 0x55ae1225fc76 <unknown>
-#2 0x55ae1228d04a <unknown>
-#3 0x55ae122884a1 <unknown>
-#4 0x55ae12285029 <unknown>
-#5 0x55ae122c3ccc <unknown>
-#6 0x55ae122c347f <unknown>
-#7 0x55ae122bade3 <unknown>
-#8 0x55ae122902dd <unknown>
-#9 0x55ae1229134e <unknown>
-#10 0x55ae124f03e4 <unknown>
-#11 0x55ae124f43d7 <unknown>
-#12 0x55ae124feb20 <unknown>
-#13 0x55ae124f5023 <unknown>
-#14 0x55ae124c31aa <unknown>
-#15 0x55ae125196b8 <unknown>
-#16 0x55ae12519847 <unknown>
-#17 0x55ae12529243 <unknown>
-#18 0x7efea6494ac3 <unknown>
+remote stacktrace: #0 0x55a1288844e3 <unknown>
+#1 0x55a1285b3c76 <unknown>
+#2 0x55a1285e104a <unknown>
+#3 0x55a1285dc4a1 <unknown>
+#4 0x55a1285d9029 <unknown>
+#5 0x55a128617ccc <unknown>
+#6 0x55a12861747f <unknown>
+#7 0x55a12860ede3 <unknown>
+#8 0x55a1285e42dd <unknown>
+#9 0x55a1285e534e <unknown>
+#10 0x55a1288443e4 <unknown>
+#11 0x55a1288483d7 <unknown>
+#12 0x55a128852b20 <unknown>
+#13 0x55a128849023 <unknown>
+#14 0x55a1288171aa <unknown>
+#15 0x55a12886d6b8 <unknown>
+#16 0x55a12886d847 <unknown>
+#17 0x55a12887d243 <unknown>
+#18 0x7f12bd694ac3 <unknown>
 
 	at com.example.TesiIntegrazioneProgettoEsterno.Test_Rel.setUp(Test_Rel.java:32)
 
-test_loc_Rel_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Rel)  Time elapsed: 1.058 s  <<< ERROR!
+test_loc_Rel_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Rel)  Time elapsed: 1.125 s  <<< ERROR!
 java.lang.NullPointerException
 	at com.example.TesiIntegrazioneProgettoEsterno.Test_Rel.tearDown(Test_Rel.java:62)
 

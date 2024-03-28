@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.TesiIntegrazioneProgettoEsterno.Test_Robula" time="1.095" tests="2" errors="2" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.TesiIntegrazioneProgettoEsterno.Test_Robula" time="1.111" tests="2" errors="2" skipped="0" failures="0">
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="file.encoding.pkg" value="sun.io"/>
@@ -15,7 +15,7 @@
     <property name="os.name" value="Linux"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/surefire/surefirebooter6668096065865101845.jar /home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/surefire 2024-03-28T11-05-04_069-jvmRun1 surefire7560111576133568896tmp surefire_01724059853981355042tmp"/>
+    <property name="sun.java.command" value="/home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/surefire/surefirebooter985322563451962717.jar /home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/surefire 2024-03-28T15-51-22_437-jvmRun1 surefire5388320263836326781tmp surefire_03825310015148662265tmp"/>
     <property name="test" value="Test_Robula.java"/>
     <property name="surefire.test.class.path" value="/home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/test-classes:/home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/classes:/home/runner/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/runner/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-java/4.0.0-alpha-3/selenium-java-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-api/4.0.0-alpha-3/selenium-api-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.0.0-alpha-3/selenium-chrome-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/com/google/guava/guava/27.1-jre/guava-27.1-jre.jar:/home/runner/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/runner/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/runner/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/runner/.m2/repository/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2.jar:/home/runner/.m2/repository/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0.jar:/home/runner/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/home/runner/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-chromium-driver/4.0.0-alpha-3/selenium-chromium-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-devtools/4.0.0-alpha-3/selenium-devtools-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-http/4.0.0-alpha-3/selenium-http-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-json/4.0.0-alpha-3/selenium-json-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.0.0-alpha-3/selenium-edge-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-edgehtml-driver/4.0.0-alpha-3/selenium-edgehtml-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.0.0-alpha-3/selenium-firefox-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-firefox-xpi-driver/4.0.0-alpha-3/selenium-firefox-xpi-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.0.0-alpha-3/selenium-ie-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/4.0.0-alpha-3/selenium-opera-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/4.0.0-alpha-3/selenium-remote-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/com/squareup/okhttp3/okhttp/4.0.1/okhttp-4.0.1.jar:/home/runner/.m2/repository/com/squareup/okio/okio/2.2.2/okio-2.2.2.jar:/home/runner/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.3.40/kotlin-stdlib-1.3.40.jar:/home/runner/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.40/kotlin-stdlib-common-1.3.40.jar:/home/runner/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/runner/.m2/repository/io/opentracing/opentracing-api/0.33.0/opentracing-api-0.33.0.jar:/home/runner/.m2/repository/net/bytebuddy/byte-buddy/1.9.12/byte-buddy-1.9.12.jar:/home/runner/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/4.0.0-alpha-3/selenium-safari-driver-4.0.0-alpha-3.jar:/home/runner/.m2/repository/org/seleniumhq/selenium/selenium-support/4.0.0-alpha-3/selenium-support-4.0.0-alpha-3.jar:/home/runner/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/home/runner/.m2/repository/io/github/bonigarcia/webdrivermanager/4.0.0/webdrivermanager-4.0.0.jar:/home/runner/.m2/repository/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar:/home/runner/.m2/repository/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10.jar:/home/runner/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.0/httpclient5-5.0.jar:/home/runner/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.0/httpcore5-5.0.jar:/home/runner/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.0/httpcore5-h2-5.0.jar:/home/runner/.m2/repository/commons-codec/commons-codec/1.13/commons-codec-1.13.jar:/home/runner/.m2/repository/org/rauschig/jarchivelib/1.0.0/jarchivelib-1.0.0.jar:/home/runner/.m2/repository/org/apache/commons/commons-compress/1.18/commons-compress-1.18.jar:/home/runner/.m2/repository/org/jsoup/jsoup/1.13.1/jsoup-1.13.1.jar:/home/runner/.m2/repository/org/slf4j/slf4j-api/2.0.3/slf4j-api-2.0.3.jar:/home/runner/.m2/repository/org/slf4j/slf4j-simple/2.0.3/slf4j-simple-2.0.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/surefire/surefirebooter6668096065865101845.jar"/>
+    <property name="surefire.real.class.path" value="/home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/surefire/surefirebooter985322563451962717.jar"/>
     <property name="sun.boot.class.path" value="/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/resources.jar:/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/rt.jar:/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/sunrsasign.jar:/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/jsse.jar:/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/jce.jar:/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/charsets.jar:/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/jfr.jar:/opt/hostedtoolcache/jdk/8.0.402/x64/jre/lib/cat.jar:/opt/hostedtoolcache/jdk/8.0.402/x64/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_402-b06"/>
@@ -59,32 +59,32 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="test_loc_Robula_release_1_1" classname="com.example.TesiIntegrazioneProgettoEsterno.Test_Robula" time="1.065">
-    <error message="session not created: This version of ChromeDriver only supports Chrome version 114&#10;Current browser version is 123.0.6312.58 with binary path /usr/bin/google-chrome&#10;Build info: version: &apos;4.0.0-alpha-3&apos;, revision: &apos;8c567de6dc&apos;&#10;System info: host: &apos;fv-az1205-52&apos;, ip: &apos;10.1.0.84&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.5.0-1016-azure&apos;, java.version: &apos;1.8.0_402&apos;&#10;Driver info: driver.version: ChromeDriver&#10;remote stacktrace: #0 0x55bf273754e3 &lt;unknown&gt;&#10;#1 0x55bf270a4c76 &lt;unknown&gt;&#10;#2 0x55bf270d204a &lt;unknown&gt;&#10;#3 0x55bf270cd4a1 &lt;unknown&gt;&#10;#4 0x55bf270ca029 &lt;unknown&gt;&#10;#5 0x55bf27108ccc &lt;unknown&gt;&#10;#6 0x55bf2710847f &lt;unknown&gt;&#10;#7 0x55bf270ffde3 &lt;unknown&gt;&#10;#8 0x55bf270d52dd &lt;unknown&gt;&#10;#9 0x55bf270d634e &lt;unknown&gt;&#10;#10 0x55bf273353e4 &lt;unknown&gt;&#10;#11 0x55bf273393d7 &lt;unknown&gt;&#10;#12 0x55bf27343b20 &lt;unknown&gt;&#10;#13 0x55bf2733a023 &lt;unknown&gt;&#10;#14 0x55bf273081aa &lt;unknown&gt;&#10;#15 0x55bf2735e6b8 &lt;unknown&gt;&#10;#16 0x55bf2735e847 &lt;unknown&gt;&#10;#17 0x55bf2736e243 &lt;unknown&gt;&#10;#18 0x7f53a9a94ac3 &lt;unknown&gt;&#10;" type="org.openqa.selenium.SessionNotCreatedException"><![CDATA[org.openqa.selenium.SessionNotCreatedException: 
+  <testcase name="test_loc_Robula_release_1_1" classname="com.example.TesiIntegrazioneProgettoEsterno.Test_Robula" time="1.078">
+    <error message="session not created: This version of ChromeDriver only supports Chrome version 114&#10;Current browser version is 123.0.6312.58 with binary path /usr/bin/google-chrome&#10;Build info: version: &apos;4.0.0-alpha-3&apos;, revision: &apos;8c567de6dc&apos;&#10;System info: host: &apos;fv-az566-840&apos;, ip: &apos;10.1.0.93&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.5.0-1016-azure&apos;, java.version: &apos;1.8.0_402&apos;&#10;Driver info: driver.version: ChromeDriver&#10;remote stacktrace: #0 0x558ad2aae4e3 &lt;unknown&gt;&#10;#1 0x558ad27ddc76 &lt;unknown&gt;&#10;#2 0x558ad280b04a &lt;unknown&gt;&#10;#3 0x558ad28064a1 &lt;unknown&gt;&#10;#4 0x558ad2803029 &lt;unknown&gt;&#10;#5 0x558ad2841ccc &lt;unknown&gt;&#10;#6 0x558ad284147f &lt;unknown&gt;&#10;#7 0x558ad2838de3 &lt;unknown&gt;&#10;#8 0x558ad280e2dd &lt;unknown&gt;&#10;#9 0x558ad280f34e &lt;unknown&gt;&#10;#10 0x558ad2a6e3e4 &lt;unknown&gt;&#10;#11 0x558ad2a723d7 &lt;unknown&gt;&#10;#12 0x558ad2a7cb20 &lt;unknown&gt;&#10;#13 0x558ad2a73023 &lt;unknown&gt;&#10;#14 0x558ad2a411aa &lt;unknown&gt;&#10;#15 0x558ad2a976b8 &lt;unknown&gt;&#10;#16 0x558ad2a97847 &lt;unknown&gt;&#10;#17 0x558ad2aa7243 &lt;unknown&gt;&#10;#18 0x7f2c43094ac3 &lt;unknown&gt;&#10;" type="org.openqa.selenium.SessionNotCreatedException"><![CDATA[org.openqa.selenium.SessionNotCreatedException: 
 session not created: This version of ChromeDriver only supports Chrome version 114
 Current browser version is 123.0.6312.58 with binary path /usr/bin/google-chrome
 Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
-System info: host: 'fv-az1205-52', ip: '10.1.0.84', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1016-azure', java.version: '1.8.0_402'
+System info: host: 'fv-az566-840', ip: '10.1.0.93', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1016-azure', java.version: '1.8.0_402'
 Driver info: driver.version: ChromeDriver
-remote stacktrace: #0 0x55bf273754e3 <unknown>
-#1 0x55bf270a4c76 <unknown>
-#2 0x55bf270d204a <unknown>
-#3 0x55bf270cd4a1 <unknown>
-#4 0x55bf270ca029 <unknown>
-#5 0x55bf27108ccc <unknown>
-#6 0x55bf2710847f <unknown>
-#7 0x55bf270ffde3 <unknown>
-#8 0x55bf270d52dd <unknown>
-#9 0x55bf270d634e <unknown>
-#10 0x55bf273353e4 <unknown>
-#11 0x55bf273393d7 <unknown>
-#12 0x55bf27343b20 <unknown>
-#13 0x55bf2733a023 <unknown>
-#14 0x55bf273081aa <unknown>
-#15 0x55bf2735e6b8 <unknown>
-#16 0x55bf2735e847 <unknown>
-#17 0x55bf2736e243 <unknown>
-#18 0x7f53a9a94ac3 <unknown>
+remote stacktrace: #0 0x558ad2aae4e3 <unknown>
+#1 0x558ad27ddc76 <unknown>
+#2 0x558ad280b04a <unknown>
+#3 0x558ad28064a1 <unknown>
+#4 0x558ad2803029 <unknown>
+#5 0x558ad2841ccc <unknown>
+#6 0x558ad284147f <unknown>
+#7 0x558ad2838de3 <unknown>
+#8 0x558ad280e2dd <unknown>
+#9 0x558ad280f34e <unknown>
+#10 0x558ad2a6e3e4 <unknown>
+#11 0x558ad2a723d7 <unknown>
+#12 0x558ad2a7cb20 <unknown>
+#13 0x558ad2a73023 <unknown>
+#14 0x558ad2a411aa <unknown>
+#15 0x558ad2a976b8 <unknown>
+#16 0x558ad2a97847 <unknown>
+#17 0x558ad2aa7243 <unknown>
+#18 0x7f2c43094ac3 <unknown>
 
 	at com.example.TesiIntegrazioneProgettoEsterno.Test_Robula.setUp(Test_Robula.java:32)
 ]]></error>
@@ -93,13 +93,13 @@ remote stacktrace: #0 0x55bf273754e3 <unknown>
 [main] ERROR io.github.bonigarcia.wdm.online.HttpClient - Error HTTP 404 executing https://chromedriver.storage.googleapis.com/LATEST_RELEASE_123
 [main] WARN io.github.bonigarcia.wdm.versions.VersionDetector - Exception reading https://chromedriver.storage.googleapis.com/LATEST_RELEASE_123 to get latest version of chromedriver (Error HTTP 404 executing https://chromedriver.storage.googleapis.com/LATEST_RELEASE_123)
 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /home/runner/.m2/repository/webdriver/chromedriver/linux64/114.0.5735.90/chromedriver
-Starting ChromeDriver 114.0.5735.90 (386bc09e8f4f2e025eddae123f36f6263096ae49-refs/branch-heads/5735@{#1052}) on port 18072
+Starting ChromeDriver 114.0.5735.90 (386bc09e8f4f2e025eddae123f36f6263096ae49-refs/branch-heads/5735@{#1052}) on port 1330
 All remote connections are allowed. Use an allowlist instead!
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
 ]]></system-err>
   </testcase>
-  <testcase name="test_loc_Robula_release_1_1" classname="com.example.TesiIntegrazioneProgettoEsterno.Test_Robula" time="1.066">
+  <testcase name="test_loc_Robula_release_1_1" classname="com.example.TesiIntegrazioneProgettoEsterno.Test_Robula" time="1.079">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at com.example.TesiIntegrazioneProgettoEsterno.Test_Robula.tearDown(Test_Robula.java:62)
 </error>
