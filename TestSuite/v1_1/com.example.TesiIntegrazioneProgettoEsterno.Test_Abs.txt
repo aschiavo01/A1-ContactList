@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_Abs
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.832 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_Abs
+test_loc_Abs_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Abs)  Time elapsed: 1.807 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 123.0.6312.58 with binary path /usr/bin/google-chrome
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'fv-az1205-52', ip: '10.1.0.84', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1016-azure', java.version: '1.8.0_402'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x556e65f534e3 <unknown>
+#1 0x556e65c82c76 <unknown>
+#2 0x556e65cb004a <unknown>
+#3 0x556e65cab4a1 <unknown>
+#4 0x556e65ca8029 <unknown>
+#5 0x556e65ce6ccc <unknown>
+#6 0x556e65ce647f <unknown>
+#7 0x556e65cddde3 <unknown>
+#8 0x556e65cb32dd <unknown>
+#9 0x556e65cb434e <unknown>
+#10 0x556e65f133e4 <unknown>
+#11 0x556e65f173d7 <unknown>
+#12 0x556e65f21b20 <unknown>
+#13 0x556e65f18023 <unknown>
+#14 0x556e65ee61aa <unknown>
+#15 0x556e65f3c6b8 <unknown>
+#16 0x556e65f3c847 <unknown>
+#17 0x556e65f4c243 <unknown>
+#18 0x7f5542094ac3 <unknown>
+
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_Abs.setUp(Test_Abs.java:32)
+
+test_loc_Abs_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Abs)  Time elapsed: 1.808 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_Abs.tearDown(Test_Abs.java:62)
+

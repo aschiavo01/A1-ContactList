@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_Robula
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.095 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_Robula
+test_loc_Robula_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Robula)  Time elapsed: 1.065 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 123.0.6312.58 with binary path /usr/bin/google-chrome
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'fv-az1205-52', ip: '10.1.0.84', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1016-azure', java.version: '1.8.0_402'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x55bf273754e3 <unknown>
+#1 0x55bf270a4c76 <unknown>
+#2 0x55bf270d204a <unknown>
+#3 0x55bf270cd4a1 <unknown>
+#4 0x55bf270ca029 <unknown>
+#5 0x55bf27108ccc <unknown>
+#6 0x55bf2710847f <unknown>
+#7 0x55bf270ffde3 <unknown>
+#8 0x55bf270d52dd <unknown>
+#9 0x55bf270d634e <unknown>
+#10 0x55bf273353e4 <unknown>
+#11 0x55bf273393d7 <unknown>
+#12 0x55bf27343b20 <unknown>
+#13 0x55bf2733a023 <unknown>
+#14 0x55bf273081aa <unknown>
+#15 0x55bf2735e6b8 <unknown>
+#16 0x55bf2735e847 <unknown>
+#17 0x55bf2736e243 <unknown>
+#18 0x7f53a9a94ac3 <unknown>
+
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_Robula.setUp(Test_Robula.java:32)
+
+test_loc_Robula_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Robula)  Time elapsed: 1.066 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_Robula.tearDown(Test_Robula.java:62)
+

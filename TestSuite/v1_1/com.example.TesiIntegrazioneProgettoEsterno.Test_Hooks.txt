@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.083 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks
+test_loc_Hooks_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks)  Time elapsed: 1.057 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 123.0.6312.58 with binary path /usr/bin/google-chrome
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'fv-az1205-52', ip: '10.1.0.84', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1016-azure', java.version: '1.8.0_402'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x55e122c684e3 <unknown>
+#1 0x55e122997c76 <unknown>
+#2 0x55e1229c504a <unknown>
+#3 0x55e1229c04a1 <unknown>
+#4 0x55e1229bd029 <unknown>
+#5 0x55e1229fbccc <unknown>
+#6 0x55e1229fb47f <unknown>
+#7 0x55e1229f2de3 <unknown>
+#8 0x55e1229c82dd <unknown>
+#9 0x55e1229c934e <unknown>
+#10 0x55e122c283e4 <unknown>
+#11 0x55e122c2c3d7 <unknown>
+#12 0x55e122c36b20 <unknown>
+#13 0x55e122c2d023 <unknown>
+#14 0x55e122bfb1aa <unknown>
+#15 0x55e122c516b8 <unknown>
+#16 0x55e122c51847 <unknown>
+#17 0x55e122c61243 <unknown>
+#18 0x7fac7e294ac3 <unknown>
+
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks.setUp(Test_Hooks.java:32)
+
+test_loc_Hooks_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks)  Time elapsed: 1.057 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks.tearDown(Test_Hooks.java:62)
+
