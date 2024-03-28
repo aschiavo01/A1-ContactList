@@ -1,4 +1,4 @@
-package com.example.PrimaTestSuite;
+package com.example.TesiIntegrazioneProgettoEsterno;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
