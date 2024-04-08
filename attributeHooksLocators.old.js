@@ -55,12 +55,6 @@ LocatorBuilders.prototype.attributeValue = function(value) {
     }
 };
 
-/**
- * Ritorna la stessa stringa di input aggiungendo "x:" come prefisso se il documento
- * e' di tipo XHTML
- * @param {*} name 
- * @returns 
- */
 LocatorBuilders.prototype.xpathHtmlElement = function(name) {
     if (this.window.document.contentType == 'application/xhtml+xml') {
         // "x:" prefix is required when testing XHTML pages
@@ -70,13 +64,6 @@ LocatorBuilders.prototype.xpathHtmlElement = function(name) {
     }
 };
 
-/**
- * Ritorna un path univoco rispetto al padre contenitore:
- * - aggiunge "/" come prefisso
- * - se sono presenti altri nodi a partire dallo stesso antenato allora deriva l'indice da assegnare
- * @param {*} current 
- * @returns la stringa di input aggiungendo il prefisso "/". Se sono presenti altri nodi allo stesso livello, concatena "[index+1]"
- */
 LocatorBuilders.prototype.relativeXPathFromParent = function(current) {
     var index = this.getNodeNbr(current);
 	
@@ -90,12 +77,6 @@ LocatorBuilders.prototype.relativeXPathFromParent = function(current) {
     return currentPath;
 };
 
-
-/**
- * Restituisce il numero di elementi che condividono lo stesso padre. 
- * @param {*} current 
- * @returns indice
- */
 LocatorBuilders.prototype.getNodeNbr = function(current) {
     var childNodes = current.parentNode.childNodes;
     var total = 0;
@@ -112,18 +93,6 @@ LocatorBuilders.prototype.getNodeNbr = function(current) {
     return index;
 };
 
-/**
- * Verifica la presenza di elementi identificativi di stile presenti sull'input:
- * - se possiede un id, allora questo viene identificato come #id
- * - se possiede il class, allora viene formata una stringa identificativa proveniente dal contenuto del campo
- *   sostituendo gli spazi bianchi con il carattere "."
- * - se possiede qualsiasi altro identificatore di stile, utilizza il formato nodeName[attr="value"]
- * - se non possiede un identificatore di stile allora:
- *      1. se l'algoritmo ne individua l'indice tra i nodi fratelli allora ritorna il selettore nodeName:nth-of-type(n)
- *      2. altrimenti restituisce il nodeName del nodo.
- * @param {*} e 
- * @returns identificativo creato con uno tra gli elementi di stile del nodo
- */
 LocatorBuilders.prototype.getCSSSubPath = function(e) {
     var css_attributes = ['id', 'name', 'class', 'type', 'alt', 'title', 'value'];
     for (var i = 0; i < css_attributes.length; i++) {
@@ -143,14 +112,6 @@ LocatorBuilders.prototype.getCSSSubPath = function(e) {
         return e.nodeName.toLowerCase();
 };
 
-
-/**
- * Verifica se e' possibile costruire una stringa xpath per "e" piu' precisa di quella fornita in input,
- * altrimenti ritorna il valore della variabile "xpath".
- * @param {*} xpath 
- * @param {*} e 
- * @returns un xpath identificativo di "e".
- */
 LocatorBuilders.prototype.preciseXPath = function(xpath, e) {
     //only create more precise xpath if needed
     if (this.findElement(xpath) != e) {
@@ -166,50 +127,40 @@ LocatorBuilders.prototype.preciseXPath = function(xpath, e) {
     return xpath;
 }
 
-/**
- * Percorre a ritroso l'albero dei nodi a partire dal corrente finche' non si giunge al nodo radice.
- * Se l'elemento corrente ha un hook associato allora:
- * - se il locator e' null || ha fratelli || e' un template || e' in un template:
- *      1. assegna al locatore l'hook corrente + indice e concatenando l'hook precedente
- * @param {*} builder 
- * @returns 
- */
 function myLocatorBuilder(builder) {
 
     return (elem) => {
+        //debugger;
         let locator = null;
+
         let templateRootParent = false;
 
         while (elem !== document) {
+
             let hookName = getAttributeHook(elem);
             if (hookName) {
+                //console.warn('Cannot find hook for element', elem)
+                //break;
+                //throw new Error('Cannot find hook for element', elem)
 
-                // boolean: sta all'interno di un template ?
                 const templateRoot = hookName.indexOf(templatePrefix) >= 0;
+
                 const siblings = getAllSiblings(elem, sameHookFilter(hookName));
 
                 const index = siblings.length > 1 ? siblings.indexOf(elem) + 1 : 0;
-                
-                //first loop (target element) or more siblings found
-                if (!locator || siblings.length > 1 || templateRoot || templateRootParent) { 
+
+                if (!locator || siblings.length > 1 || templateRoot || templateRootParent) { //first loop (target element) or more siblings found
                     locator = builder.elementLocator(hookName, index) + (locator || '');
                     templateRootParent = !!templateRoot;
                 }
             }
             elem = elem.parentNode;
         }
+        console.log('locator', locator);
         return builder.prefix + locator;
     }
 }
 
-/**
- * Percorre a ritroso l'albero dei nodi a partire dal corrente finche' non si giunge al nodo radice.
- * Restituisce un locator assoluto nel seguente modo:
- * - ad ogni iterazione verifica se il locatore che deriva da "relativeXPathFromParent" non contiene numero.
- *      Se non li contiene, allora concatena [1]
- * Concluso il ciclo, verifica se con la funzione "findElement" applicata all'xpath creato corrisponde l'oggetto di input.
- * Se si, ritorna tale xpath, altrimenti ritorna "null".
- */
 LocatorBuilders.add('myXPathAbsolute', function(e, opt_contextNode) {
    	
 	//crea xpath assoluto
@@ -234,24 +185,6 @@ LocatorBuilders.add('myXPathAbsolute', function(e, opt_contextNode) {
 	return null;
 });
 
-/**
- * Robula utilizza in primo luogo l'xpath assoluto per poi derivare xpath alternativi per ogni locatore relativo
- * contenuto nella stringa dell'xpath assoluto.
- * Con "get_L_num" si ottiene una lista degli elementi che compongono l'xpath assoluto.
- * Per ogni elemento ricavato:
- * - applica una o piu' trasformazioni (tra le 4 definire per Robula)
- * - verifica per ogni sotto-elemento appartenente all'elemento dell'xpath assoluto se identifica un path univoco per l'input "e".
- *      Se identifica un path univoco e inizia dalla radice e non ha nessun elemento null, 
- *      allora viene ritornato tale sotto-elemento come locatore, altrimenti 
- *      viene inserito nella lista dei locatori da ispezionare
- * Trasformazioni:
- *  1. Sempre applicata se w inizia con "//*". Sostituisce il carattere * con un nome di tag specifico.
- *  2. Applicata se w non inizia con "//*". Aggiunge uno o più vincoli ad un tag già presente nell'xpath condierando
- * 		solo alcuni tag presi in esame e solo alcune coppie di chiave-valore.
- *  3. Applicata se w non inizia con "//*". Aggiunge l'indice della posizione dell'elemento.
- *  4. Applicata sempre. Estende l'xpath aggiungendo un carattere jolly "*".
- * Pseudocodice: https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/6982004/6983760/6983884/6983884-fig-3-source-large.gif
- */
 LocatorBuilders.add('Robula', function(e, opt_contextNode) {
         
 	try{
@@ -264,6 +197,7 @@ LocatorBuilders.add('Robula', function(e, opt_contextNode) {
 	//variables for ROBULA
 	var current = e;
 	var path = '';
+	var locator0 = '';
     var L = []; //xpath absolute list 
 	var robula_loc = ''; //XPath res 
 	var p = ['//*']; //starting point 
@@ -367,6 +301,7 @@ LocatorBuilders.add('Robula', function(e, opt_contextNode) {
 				robula_loc = temp[i];
 				break;
 				}
+				//return res;
 				
 			}else if (XPathResCount(temp[i]) > 1 && XPathResCount(temp[i]) != 0 && !temp[i].startsWith("//*/*")) {
 				
@@ -392,28 +327,6 @@ LocatorBuilders.add('Robula', function(e, opt_contextNode) {
 		
 });
 
-/**
- * myXpathRel identifica in primo luogo l'xpath assoluto per poi derivare il primo xpath relativo da quello assoluto.
- * Costruito l'xpath assoluto, salva in (abs, L_num, L e L_base) i valori formattati come nell'esempio:
- *      abs=		//html/body/app-root/table/tr[4]/td[2]
- *      L_num=	['td[2]', 'tr[4]', 'table[1]', 'app-root[1]', 'body', 'html']
- *      L=		["td", "tr", "table","app-root", "body", "html"]
- *      L_base =	['//td', '//tr/td[2]', '//table/tr[4]/td[2]', '//app-root/table[1]/tr[4]/td[2]', '//body/app-root[1]/table[1]/tr[4]/td[2]', '//html/body/app-root[1]/table[1]/tr[4]/td[2]']
- * Dopo aver ricavato l' xpath assoluto verifica se una sola volta if(primo == 1) se:
- *  - concantenando L_base[N] e [normalize-space()='"+primo_text+"'] si ottiene un xpath che identifica l'elemento.
- * 
- * L_attr e' una mappa che associa ad ogni elemento del path assoluto una mappa. 
- * la mappa di secondo livello contiene le coppie nome-valore di ogni attributo associato all'elemento considerato.
- * Per accedera a tutti gli attributi di un singolo elemento si accede con "L_attr[calcolaN(c_elem)-1]".
- * 
- * Se l'xpath composto a partire dal primo elemento non identifica univocamente l'elemento, allora iterativamente:
- * - Per ogni elemento del path assoluto si accede alla mappa degli attirubuti con "L_attr[calcolaN(c_elem)-1]",
- * - Per ogni attributo si genera un xpath relativo e se rispetta il seguente vincolo allora viene inserito in "temp" 
- *   per essere poi esaminato. Vincolo:
- *      !t.includes('href') && !t.includes('style') && !t.includes('ng-') && !t.includes('@ng-') && !t.includes('@_ng') && !t.includes(hookPrefix) && !t.includes(templatePrefix)
- *   Finito di costruire gli xpath relativi ad un singolo elemento dell'xpath originario assoluto, verifica se 
- *   esiste almeno un xpath generato che rappresenti univocamente l'elemento "e"; se si termina.
- */
 LocatorBuilders.add('myXpathRel', function(e, opt_contextNode) {
         
 	try{
@@ -496,7 +409,7 @@ LocatorBuilders.add('myXpathRel', function(e, opt_contextNode) {
 		if(primo == 1){
 			
 			primo = 0;
-			primo_text = e.innerText;
+			
 			// //td[normalize-space()='Phone:']
 			loc_primo = c_elem+"[normalize-space()='"+primo_text+"']"
 			console.log('[REL] loc_primo: ',loc_primo);
@@ -563,7 +476,6 @@ LocatorBuilders.add('myXpathRel', function(e, opt_contextNode) {
 	}
 		
 });
-
 const cssBuilders = {
     elementLocator: (hookName, index) => {
         return '[' + hookName + ']' + (index > 0 ? ':nth-of-type(' + index + ')' : '') + ' ';
@@ -582,8 +494,7 @@ const xpathBuilders = {
 LocatorBuilders.add('myXPathHook', myLocatorBuilder(xpathBuilders));
 
 //this function I set the order in which I want katalon to return the locators
-//LocatorBuilders.setPreferredOrder(['myXPathHook','myXpathRel','Robula','myXPathAbsolute']);
-LocatorBuilders.setPreferredOrder(['myXPathHook','myXpathRel','myXPathAbsolute']);
+LocatorBuilders.setPreferredOrder(['myXPathHook','myXpathRel','Robula','myXPathAbsolute']);
 
 
 /*
@@ -622,20 +533,33 @@ function containsNumbers(str) {
 }
 
 function containsSpecialChar(str){
+///[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/  
 return /[ `!@#$%^&*()_+\-={};':"\\|,.<>?~]/.test(str);
 }
 
-/**
- * Restituisce la profondita' del nodo nell'albero delle dipendenze.
- * @param {*} str 
- * @returns un intero che rappresenta il livello nell'albero
- */
 function calcolaN(str) {
+ 
+	//function to calculate the depth of the xpath
+	//ex. w="//tr/td" 	 ->	calcolaN(w) = 2
+	//ex. w="//div/tr/d" ->	calcolaN(w) = 3
+	
 	str = str.split(new RegExp('/'));
 	str = str.slice(2,);
 	str = str.reverse(); 
 	return str.length;
 }
+
+//function mySlicer(str) {
+ 
+	//funzione per dividere un xpath
+	//ex w="//tr/td" -> mySlicer(w) = ["tr", "td"]
+	// split(new RegExp(/(?<!')\/(?!')/));
+	//str = str.split(new RegExp('/'));
+//	str = str.split(new RegExp(/(?<!')\/(?!')/));
+//	str = str.slice(2,);
+	//str = str.reverse(); 
+//	return str;
+//}
 
 
 function mySlicer(str) {
@@ -669,12 +593,6 @@ function unisciStringhe(vettore,word) { //unisciString --> in English: mergeStri
 }
 
 
-/**
- * Rimuove tutte le occorrenze del carattere "*" da "L"
- * @param {*} str 
- * @param {*} L 
- * @returns 
- */
 function transf1(str, L){
   
 	//replace the tag * with the tag of L.get(N)
@@ -823,11 +741,6 @@ function get_L_base(L, L_num){
 	return str;
 }
 
-/**
- * Conta il numero di elementi che un xpath ritorna 
- * @param {*} locator il percorso xpath
- * @returns un contatore intero 
- */
 function XPathResCount(locator) {
  	
 	locator = 'count('+locator+')';
