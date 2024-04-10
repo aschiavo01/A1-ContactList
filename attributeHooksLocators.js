@@ -582,8 +582,7 @@ const xpathBuilders = {
 LocatorBuilders.add('myXPathHook', myLocatorBuilder(xpathBuilders));
 
 //this function I set the order in which I want katalon to return the locators
-//LocatorBuilders.setPreferredOrder(['myXPathHook','myXpathRel','Robula','myXPathAbsolute']);
-LocatorBuilders.setPreferredOrder(['myXPathHook','myXpathRel','myXPathAbsolute']);
+LocatorBuilders.setPreferredOrder(['myXPathHook','myXpathRel','Robula','myXPathAbsolute']);
 
 
 /*
