@@ -14,8 +14,8 @@ def cherry_pick_and_push(branch_name, commit_hash):
 
 # Funzione per creare un tag (release)
 def create_tag(branch_name):
-    os.system(f"git tag {branch_name}_branch")
-    os.system(f"git push origin {branch_name}_branch")
+    os.system(f"git tag {branch_name}_branch_tag")
+    os.system(f"git push origin {branch_name}_branch_tag")
 
 start_time = time.time()
 
