@@ -10,7 +10,7 @@ def cherry_pick_and_push(branch_name, commit_hash):
     os.system(f"git cherry-pick -Xtheirs {commit_hash}")
     
     # Effettua la push del branch
-    os.system(f"git push origin {branch_name}")
+    os.system(f"git push -u origin {branch_name}")
 
 # Funzione per creare un tag (release)
 def create_tag(branch_name):
