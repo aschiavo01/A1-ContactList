@@ -409,7 +409,7 @@ LocatorBuilders.add('myXpathRel', function(e, opt_contextNode) {
 		if(primo == 1){
 			
 			primo = 0;
-			
+			primo_text = e.innerText;
 			// //td[normalize-space()='Phone:']
 			loc_primo = c_elem+"[normalize-space()='"+primo_text+"']"
 			console.log('[REL] loc_primo: ',loc_primo);
