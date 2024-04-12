@@ -36,7 +36,7 @@ private static StringBuffer verificationErrors = new StringBuffer();
 	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	  }
   @Test
-  public void test_myXPathHookRelativeTemplate() throws Exception {
+  public void test_loc_myXPathHookRelativeTemplate_release_1_1() throws Exception {
     driver.get("http://localhost:3001/");
     Thread.sleep(3500);
     driver.findElement(By.xpath("//html[@lang='en']/body/app-root[1]/div[1]//*[@x934107962964-x-test-hook-10]")).click();
