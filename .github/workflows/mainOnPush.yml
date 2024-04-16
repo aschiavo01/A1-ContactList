@@ -98,7 +98,7 @@ jobs:
             echo "Visualizza versione di node"
             node -v
             echo "prima della mvn"
-            cd /home/runner/work/HookTestRepo/HookTestRepo/Tesi-injector-plugin
+            cd /home/runner/work/A1-ContactList/A1-ContactList/Tesi-injector-plugin
             mvn clean install
             echo "dopo la mvn"
             cd target
@@ -109,8 +109,8 @@ jobs:
             git config --global user.password "${{ secrets.PASSWORD_ACCOUNT_GITHUB }}"
             git status
             echo "Andiamo ad effettuare il push dei file iniettati"
-            git add /home/runner/work/HookTestRepo/HookTestRepo/insert-here-your-web-app/*
-            cd /home/runner/work/HookTestRepo/HookTestRepo
+            git add /home/runner/work/A1-ContactList/A1-ContactList/insert-here-your-web-app/*
+            cd /home/runner/work/A1-ContactList/A1-ContactList
             echo "`date +%Y-%m-%d_%H-%M-%S`" > timeCommit.txt
             git add timeCommit.txt
             echo "File aggiunti!"
@@ -126,7 +126,7 @@ jobs:
           cd target
           echo "Vediamo contenuto cartella target"
           ls -a
-          java -jar correzioneFormatoTest-0.0.1-jarCorrezioneFormatoTest.jar /home/runner/work/HookTestRepo/HookTestRepo/project-test-headless/src/test/java/com/example/TesiIntegrazioneProgettoEsterno /home/runner/work/HookTestRepo/HookTestRepo/chromedriver_v94_linux64/chromedriver com.example.TesiIntegrazioneProgettoEsterno                   
+          java -jar correzioneFormatoTest-0.0.1-jarCorrezioneFormatoTest.jar /home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/src/test/java/com/example/TesiIntegrazioneProgettoEsterno /home/runner/work/A1-ContactList/A1-ContactList/chromedriver_v94_linux64/chromedriver com.example.TesiIntegrazioneProgettoEsterno                   
                 
       - name: Step 7 - Push dei file di test corretti
         run: |
@@ -137,9 +137,9 @@ jobs:
           git config --global user.name "${{ secrets.NOME_ACCOUNT_GITHUB }}"
           git config --global user.password "${{ secrets.PASSWORD_ACCOUNT_GITHUB }}"
           echo "Andiamo ad aggiungere la cartella dei report"
-          git add /home/runner/work/HookTestRepo/HookTestRepo/project-test-headless/src/test/java/com/example/TesiIntegrazioneProgettoEsterno
+          git add /home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/src/test/java/com/example/TesiIntegrazioneProgettoEsterno
           echo "Cartella aggiunta!"
-          cd /home/runner/work/HookTestRepo/HookTestRepo
+          cd /home/runner/work/A1-ContactList/A1-ContactList
           echo "`date +%Y-%m-%d_%H-%M-%S`" > timeCommit.txt
           git add timeCommit.txt
           git commit -m "push automatico per la correzione del formato dei test"
