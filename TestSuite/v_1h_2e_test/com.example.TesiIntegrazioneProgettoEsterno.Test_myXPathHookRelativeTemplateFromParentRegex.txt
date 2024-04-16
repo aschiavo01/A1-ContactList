@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplateFromParentRegex
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 23.391 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplateFromParentRegex
+test_loc_myXPathHookRelativeTemplateFromParentRegex_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplateFromParentRegex)  Time elapsed: 23.362 s  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-20]/div//*[@x934110935862-x-test-hook-3]"}
+  (Session info: chrome-headless-shell=123.0.6312.105)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'fv-az1532-673', ip: '10.1.0.175', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1017-azure', java.version: '1.8.0_402'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 123.0.6312.105, chrome: {chromedriverVersion: 123.0.6312.122 (31f8248cdd9..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:34641}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7ca3b59ae91a29d40dfd8a1a1c7c374c
+*** Element info: {Using=xpath, value=//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-20]/div//*[@x934110935862-x-test-hook-3]}
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplateFromParentRegex.test_loc_myXPathHookRelativeTemplateFromParentRegex_release_1_1(Test_myXPathHookRelativeTemplateFromParentRegex.java:50)
+
