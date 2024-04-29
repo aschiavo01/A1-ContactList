@@ -19,6 +19,7 @@ owner = "ares-17"
 repo = "A1-ContactList"
 
 pom_files = ["project-test-headless/pom.xml", "project-test-local/pom.xml"]
+log_file = 'logs.log'
 actions_files = [
     ".github/workflows/main.yml",
     ".github/workflows/mainOnPush.yml",
@@ -85,11 +86,12 @@ tags = [
 """
 
 tags = [
-    "v_1a_2c_t2",
+    "v_1j_2e_t2",
 ]
 
 def run_script(script):
-    subprocess.run(script, shell=True, check=True)
+    subprocess.run(f"{script} >> {log_file}", shell=True, check=True)
+    subprocess.run(f"\n >> {log_file}", shell=True, check=True)
 
 def clean_workspace():
     run_script(f"git reset --hard origin/master")
@@ -195,7 +197,7 @@ for tag in tags:
     print(f"[{tag}]: commit and push")
     commmit_push_branch(branch_name)
     print(f"[{tag}]: creating release")
-    create_github_release(tag, branch_name)
-    print(f"[{tag}]: end tag\n\n")
+    #create_github_release(tag, branch_name)
+    #print(f"[{tag}]: end tag\n\n")
 
 
