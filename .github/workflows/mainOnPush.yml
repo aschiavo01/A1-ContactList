@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - '**'      # matches every branches
+      - '!v_*'    # exclude every test branches
 
 
  
@@ -40,7 +41,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
             node-version: 10       
-            cache: 'npm' 
                         
       - name: Step 3 - Installare Node versione 10 in Ubuntu
         run: |
