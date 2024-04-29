@@ -59,6 +59,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
             node-version: 12
+            cache: 'npm'
 
       - name: Step 6 - Cache Maven pakages
         id: cache-mvn
