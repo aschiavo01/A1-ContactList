@@ -14,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class Test_Rel{
+public class Test_myXPathHookRelativeTemplateFromParentRegex {
 private static WebDriver driver;
 private boolean acceptNextAlert = true;
 private static StringBuffer verificationErrors = new StringBuffer();
@@ -23,7 +23,7 @@ private static StringBuffer verificationErrors = new StringBuffer();
 	  public void setUp() throws Exception {
 		
 		  // Init chromedriver
-		  //String chromeDriverPath = "/home/runner/work/HookTestRepo/HookTestRepo/chromedriver_v94_linux64/chromedriver";
+		  //String chromeDriverPath = "/home/runner/work/A1-ContactList/A1-ContactList/chromedriver_v94_linux64/chromedriver";
 		  //System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		  WebDriverManager.chromedriver().setup();
 		  System.setProperty("webdriver.chrome.whitelistedIps", "");
@@ -36,24 +36,21 @@ private static StringBuffer verificationErrors = new StringBuffer();
 	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	  }
   @Test
-  public void test_loc_Rel_release_1_1() throws Exception{
+  public void test_loc_myXPathHookRelativeTemplateFromParentRegex_release_1_1() throws Exception {
     driver.get("http://localhost:3001/");
     Thread.sleep(3500);
-    driver.findElement(By.xpath("//input[@placeholder='First Name']")).click();
-	driver.findElement(By.xpath("//input[@placeholder='First Name']")).clear();
-	driver.findElement(By.xpath("//input[@placeholder='First Name']")).sendKeys("Marco");
-	driver.findElement(By.xpath("//input[@placeholder='Last Name']")).click();
-	driver.findElement(By.xpath("//input[@placeholder='Last Name']")).clear();
-	driver.findElement(By.xpath("//input[@placeholder='Last Name']")).sendKeys("De Luca");
-	driver.findElement(By.xpath("//input[@placeholder='Email']")).click();
-	driver.findElement(By.xpath("//input[@placeholder='Email']")).clear();
-	driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("ciao@ciao.it");
-	driver.findElement(By.xpath("//button[normalize-space()='Create']")).click();
-	Thread.sleep(3500);
-	assertEquals("4",driver.findElement(By.xpath("//div[normalize-space()='4']")).getText());
-	driver.findElement(By.xpath("//button[normalize-space()='Get All Users']")).click();
-	Thread.sleep(3500);    
-    assertEquals("Marco",driver.findElement(By.xpath("//td[normalize-space()='Marco']")).getText());
+    driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-10]")).click();
+    driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-10]")).sendKeys("Marco");
+    driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-13]")).click();
+    driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-13]")).sendKeys("De Luca");
+    driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-17]")).click();
+    driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-17]")).sendKeys("ciao@ciao.it");
+    driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-18]")).click();
+    Thread.sleep(3500);
+    assertEquals("4", driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-20]/div//*[@x934110935862-x-test-hook-3]")).getText());
+    driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div//*[@x934107962964-x-test-hook-20]/div//*[@x934110935862-x-test-hook-5]")).click();
+    Thread.sleep(3500);
+    assertEquals("Marco", driver.findElement(By.xpath("//html//*[@x934114515538-x-test-hook-9]/div[2]//*[@x934107962964-x-test-hook-22]/div//*[@x934112684301-x-test-hook-11][4]//*[@x934112684301-x-test-hook-13]")).getText());
   }
 
 
