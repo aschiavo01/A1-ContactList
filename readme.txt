@@ -1,6 +1,6 @@
 ##To configure it for your own web application, follow these steps:
 
-1) Fork this repository.
+1) Fork this repository. 
 
 2) After creating your repository (via fork), clone the created repository locally.
 
