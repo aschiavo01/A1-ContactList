@@ -1,10 +1,7 @@
 import os
 import subprocess
 import re
-from configparser import ConfigParser
-
-config = ConfigParser()
-config.read('config.ini')
+from datetime import datetime
 
 # Funzione per eseguire uno script bash
 def run_script(script):
@@ -13,7 +10,7 @@ def run_script(script):
 def get_tags():
     try:
         current_dir = os.getcwd()
-        git_repo_path = config.get('variabili', 'percorso_A1_forked')
+        git_repo_path = "/home/aress/Documenti/Software Testing/progetto/A1-ContactList"
         os.chdir(git_repo_path)
 
         tags = subprocess.check_output(["git", "tag"], text=True).splitlines()
@@ -56,43 +53,36 @@ def find_commits_with_tag(tag_list):
         print(f"Errore: {e}")
         return None    
 
+def create_tags_file(tag_list):
+    # Genera il nome del file usando la data corrente
+    current_date = datetime.today().strftime('%d-%m-%Y')
+    file_name = f"tags-{current_date}.txt"
+
+    # Crea il file nella directory corrente e scrivi gli elementi della lista
+    with open(file_name, 'w') as file:
+        for tag in tag_list:
+            file.write(tag + '\n')
+
+    print(f"File '{file_name}' creato con successo.")
+
+def filter_strings(strings):
+    # Ordina le stringhe in modo crescente in base alla loro lunghezza
+    sorted_strings = sorted(strings, key=len)
+    
+    filtered_set = set()
+
+    # Itera attraverso le stringhe in ordine crescente di lunghezza
+    for string in sorted_strings:
+        is_contained = any(string in existing_string for existing_string in filtered_set)
+        if not is_contained:
+            filtered_set.add(string)
+    
+    return filtered_set
 
 tags = get_tags()
 commits_with_tag, tags_without_commit, tags_with_commit = find_commits_with_tag(tags)
 print(f"Numero totale commit distinte: {len(commits_with_tag)}")
 print(f"tags con commit: {len(tags_with_commit)}")
 print(f"tags senza commit: {len(tags_without_commit)}")
-print(commits_with_tag[0])
 
-run_script(f"git cherry-pick {commits_with_tag[0]}")
-run_script(f"git push origin HEAD")
-run_script(f"git tag {commits_with_tag[0]}")
-run_script(f"git push origin {commits_with_tag[0]}")
-
-"""
-def check_duplicates(array):
-    descriptions = []
-    for commit in commits_with_tag:
-        descriptions.append(subprocess.check_output(["git", "show", "-s", "--format=%s", commit], text=True).strip())
-
-    # Inizializza un dizionario per tenere traccia del numero di occorrenze di ciascun elemento
-    occurrences = {}
-    duplicates = []
-
-    # Conta il numero di occorrenze di ciascun elemento
-    for element in descriptions:
-        occurrences[element] = occurrences.get(element, 0) + 1
-
-    # Trova gli elementi che sono presenti più di una volta
-    for element, count in occurrences.items():
-        if count > 1:
-            duplicates.append((element, count))
-
-    return duplicates
-
-duplicates = check_duplicates(commits_with_tag)
-
-for duplicate in duplicates:
-    print(duplicate[0], duplicate[1])
-"""
-
+create_tags_file(tags)
