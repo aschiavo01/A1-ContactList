@@ -17,10 +17,10 @@ do
 	echo "BackEnd spento";
 	sleep 10
 	echo "Riavvio il BackEnd";
-	cd /home/runner/work/HookTestRepo/HookTestRepo
+	cd /home/runner/work/A1-ContactList/A1-ContactList
 	pwd
 	bash startBackEnd.sh 
-	cd /home/runner/work/HookTestRepo/HookTestRepo/project-test-headless
+	cd /home/runner/work/A1-ContactList/A1-ContactList/project-test-headless
 	echo "ora dovrei aver cambiato di nuovo cartella..";
 	pwd
 done;
