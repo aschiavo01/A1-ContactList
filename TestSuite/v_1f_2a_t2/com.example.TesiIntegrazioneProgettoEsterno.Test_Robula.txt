@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_Robula
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 12.124 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_Robula
-test_loc_Robula_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Robula)  Time elapsed: 12.102 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[Marco]> but was:<[ciao@ciao.it]>
-	at com.example.TesiIntegrazioneProgettoEsterno.Test_Robula.test_loc_Robula_release_1_1(Test_Robula.java:56)
-
