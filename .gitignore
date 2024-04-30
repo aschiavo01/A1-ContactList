@@ -35,3 +35,7 @@ node_modules/
 
 ## secrets
 .secrets.ini
+
+# folder with excel fo results
+release_download
+reports

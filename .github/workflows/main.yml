@@ -6,9 +6,6 @@ name: Github Actions - main (On Release)
 on:
   release:
     types: [published]
-  push:
-    branches:
-      - 'v_*'
  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
