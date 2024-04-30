@@ -44,7 +44,7 @@ jobs:
           cd unisciReportExcel/target
           echo "Vediamo contenuto cartella target"
           ls -a
-          sudo bash -c 'java -jar unisciReportExcel-0.0.1-jarReportTest.jar /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale/Report-Separati reportComplessivo'
+          sudo bash -c 'java -jar unisciReportExcel-0.0.1-jarReportTest.jar /home/runner/work/A1-ContactList/A1-ContactList/Report-Separati reportComplessivo'
           
       - name: Step 4 - Sposta file xls generati
         run: |
@@ -52,7 +52,7 @@ jobs:
           cd unisciReportExcel/target
           echo "Vediamo contenuto cartella target"
           ls -a     
-          sudo cp reportComplessivo.xls /home/runner/work/Tesi-StrumentoGenerale/Tesi-StrumentoGenerale 
+          sudo cp reportComplessivo.xls /home/runner/work/A1-ContactList/A1-ContactList 
           
       - name: Step 5 - Push dei file dei report ottenuti
         run: |
