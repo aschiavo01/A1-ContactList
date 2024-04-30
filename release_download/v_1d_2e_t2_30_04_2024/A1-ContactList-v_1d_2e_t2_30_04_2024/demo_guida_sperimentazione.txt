@@ -1,0 +1,40 @@
+Come replicare la sperimentazione
+
+1) fare fork del repository -> https://github.com/zummino/Tesi-StrumentoGenerale
+
+--> probabilmente bisogna configurare envForGithubActions con i propri dati
+
+2) scaricare Sublime Merge e configurarlo per lavorare con la repository appena forkata
+
+
+3) fare pull in locale della repo
+
+4) andare nella cartella della repo in cui è presente la web app ed eseguire npm install la prima volta
+	per le iterazioni successive basterà fare la npm start
+	-> C:\Users\marco\Desktop\Spotify_Test\Tesi-StrumentoGenerale\insert-here-your-web-app\angular-spotify-main\angular-spotify-main
+
+5) aprire un browser e collegarsi a localhost:4200 e verificare che l'app sia in esecuzione
+
+6) effettuare eventuali modifiche all'applicazione
+
+7) registrare casi di test con katalon
+
+8) esportare i casi di test da katalon in formato junit
+
+9) rinominare e modificare i file di test per renderli adatti alla nostra nomenclatura
+
+10) inserire i file di test nella repo locale nelle seguente cartella ->
+	C:\Users\marco\Desktop\Spotify_Test\Tesi-StrumentoGenerale\project-test-headless\src\test\java\com\example\TesiIntegrazioneProgettoEsterno
+	
+	
+11) fare commit&push
+
+12) ora bisogna aspettare che termini l'action MainOnPush, che serve sia per inietterare evenutali nuovi locatori sia per modificare i file di test in modo da renderli headless\src\test\java\com\example\TesiIntegrazioneProgettoEsterno
+
+13) al termine del MainOnPush effettuare la PULL della repo in modo da avere la nuova versione aggiornata con il formato dei test corretto e/o nuovi locatori iniettati
+
+14) rilasciare una nuova release che andrà ed eseguire i test appena inseriti
+
+15) scaricare e visualizzare i risultati del test 
+
+	

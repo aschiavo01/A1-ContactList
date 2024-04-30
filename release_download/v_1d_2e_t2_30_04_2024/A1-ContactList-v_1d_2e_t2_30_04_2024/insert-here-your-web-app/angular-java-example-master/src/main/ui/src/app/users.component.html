@@ -1,0 +1,21 @@
+<div class="container" x934112684301-x-test-tpl-1>
+<h2 x934112684301-x-test-hook-2>Users</h2>
+<table class="table table-bordered" x934112684301-x-test-hook-3>
+	<thead x934112684301-x-test-hook-4>	
+		<tr x934112684301-x-test-hook-5>	
+			<th x934112684301-x-test-hook-6>User Id</th>	
+			<th x934112684301-x-test-hook-7>Firstname</th>			
+			<th x934112684301-x-test-hook-8>Lastname</th>
+			<th x934112684301-x-test-hook-9>Email</th>
+		</tr>
+	</thead>
+	<tbody x934112684301-x-test-hook-10>
+		<tr *ngFor="let user of users; let i = index" x934112684301-x-test-hook-11>
+			<td x934112684301-x-test-hook-12>{{i + 1}}</td>
+			<td x934112684301-x-test-hook-13>{{user.firstName}}</td>
+			<td x934112684301-x-test-hook-14>{{user.lastName}}</td>
+			<td x934112684301-x-test-hook-15>{{user.email}}</td>
+		</tr>
+	 </tbody>
+</table>
+</div>
