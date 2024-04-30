@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplate
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 12.619 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplate
+test_loc_myXPathHookRelativeTemplate_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplate)  Time elapsed: 12.594 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Marco]> but was:<[]>
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplate.test_loc_myXPathHookRelativeTemplate_release_1_1(Test_myXPathHookRelativeTemplate.java:53)
+
