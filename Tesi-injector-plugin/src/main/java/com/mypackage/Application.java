@@ -38,7 +38,7 @@ public class Application {
             System.out.println("La lista dei file di FE è:");
             System.out.println(feFilePathList);
             List<String> commmandList = createHookInjectionShContent(feFilePathList, args[1]);
-            commmandList.add(0,"cd /home/runner/work/HookTestRepo/HookTestRepo/test-hooks/test-guard");
+            commmandList.add(0,"cd /home/runner/work/A1-ContactList/A1-ContactList/test-hooks/test-guard");
             System.out.println("La lista dei comandi da inserire nel file hookInjection.sh:");
             System.out.println(commmandList);
 
@@ -56,7 +56,7 @@ public class Application {
 
             try{
                 ProcessBuilder pb = new ProcessBuilder();
-                pb.command("bash", "-c", "bash /home/runner/work/HookTestRepo/HookTestRepo/Tesi-injector-plugin/target/hookInjection.sh");
+                pb.command("bash", "-c", "bash /home/runner/work/A1-ContactList/A1-ContactList/Tesi-injector-plugin/target/hookInjection.sh");
                 Process p = pb.start();
                 p.waitFor();
                 System.out.println("Script executed..");
