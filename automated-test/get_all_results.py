@@ -1,10 +1,13 @@
 import os
 import shutil
 import glob
+from configparser import ConfigParser
+
+config = ConfigParser()
 
 cwd = os.getcwd()
 output_dir = f"{cwd}/reports"
-base_folder = "/home/aress/Documenti/Software Testing/progetto/A1-ContactList/automated-test/release_download"
+base_folder = config.read("get_all_results", "base_folder")
 
 def examine_folders_in_directory(directory):
     # Verifica se il percorso specificato è una directory

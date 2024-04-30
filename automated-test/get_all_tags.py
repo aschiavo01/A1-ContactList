@@ -2,6 +2,9 @@ import os
 import subprocess
 import re
 from datetime import datetime
+from configparser import ConfigParser
+
+config = ConfigParser()
 
 # Funzione per eseguire uno script bash
 def run_script(script):
@@ -10,7 +13,7 @@ def run_script(script):
 def get_tags():
     try:
         current_dir = os.getcwd()
-        git_repo_path = "/home/aress/Documenti/Software Testing/progetto/A1-ContactList"
+        git_repo_path = config.read("get_all_tags", "git_repo_path")
         os.chdir(git_repo_path)
 
         tags = subprocess.check_output(["git", "tag"], text=True).splitlines()

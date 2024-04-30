@@ -51,8 +51,8 @@ def update_action_files():
     for file in actions_files:
         fin = open(f"{file}", "rt")
         data = fin.read()
-        data = data.replace('HookTestRepo', 'A1-ContactList')
-        data = data.replace('Tesi-StrumentoGenerale', 'A1-ContactList')
+        data = data.replace('HookTestRepo', repo)
+        data = data.replace('Tesi-StrumentoGenerale', repo)
         fin.close()
 
         fin = open(f"{file}", "wt")
