@@ -14,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class Test_Katalon{
+public class Test_myXPathHookRelativeTemplate {
 private static WebDriver driver;
 private boolean acceptNextAlert = true;
 private static StringBuffer verificationErrors = new StringBuffer();
@@ -23,7 +23,7 @@ private static StringBuffer verificationErrors = new StringBuffer();
 	  public void setUp() throws Exception {
 		
 		  // Init chromedriver
-		  //String chromeDriverPath = "/home/runner/work/HookTestRepo/HookTestRepo/chromedriver_v94_linux64/chromedriver";
+		  //String chromeDriverPath = "/home/runner/work/A1-ContactList/A1-ContactList/chromedriver_v94_linux64/chromedriver";
 		  //System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		  WebDriverManager.chromedriver().setup();
 		  System.setProperty("webdriver.chrome.whitelistedIps", "");
@@ -36,24 +36,21 @@ private static StringBuffer verificationErrors = new StringBuffer();
 	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	  }
   @Test
-  public void test_loc_Katalon_release_1_1() throws Exception{
+  public void test_loc_myXPathHookRelativeTemplate_release_1_1() throws Exception {
     driver.get("http://localhost:3001/");
     Thread.sleep(3500);
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='First Name'])[1]/following::input[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='First Name'])[1]/following::input[1]")).clear();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='First Name'])[1]/following::input[1]")).sendKeys("Marco");
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Last Name'])[1]/following::input[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Last Name'])[1]/following::input[1]")).clear();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Last Name'])[1]/following::input[1]")).sendKeys("De Luca");
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::input[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::input[1]")).clear();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::input[1]")).sendKeys("ciao@ciao.it");
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::button[1]")).click();
-	Thread.sleep(3500);
-	assertEquals("4",driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Users Created'])[1]/following::div[1]")).getText());
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Users Created'])[1]/following::button[1]")).click();
+    driver.findElement(By.xpath("//html[@lang='en']/body/app-root[1]/div[1]//*[@x934107962964-x-test-hook-10]")).click();
+    driver.findElement(By.xpath("//html[@lang='en']/body/app-root[1]/div[1]//*[@x934107962964-x-test-hook-10]")).sendKeys("Marco");
+    driver.findElement(By.xpath("//html[@lang='en']/body/app-root[1]/div[1]//*[@x934107962964-x-test-hook-13]")).click();
+    driver.findElement(By.xpath("//html[@lang='en']/body/app-root[1]/div[1]//*[@x934107962964-x-test-hook-13]")).sendKeys("De Luca");
+    driver.findElement(By.xpath("//html[@lang='en']/body/app-root[1]/div[1]//*[@x934107962964-x-test-hook-17]")).click();
+    driver.findElement(By.xpath("//html[@lang='en']/body/app-root[1]/div[1]//*[@x934107962964-x-test-hook-17]")).sendKeys("ciao@ciao.it");
+    driver.findElement(By.xpath("//html[@lang='en']/body/app-root[1]/div[1]//*[@x934107962964-x-test-hook-18]")).click();
     Thread.sleep(3500);
-    assertEquals("Marco",driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='abc3@gmail.com'])[1]/following::td[2]")).getText());
+    assertEquals("4", driver.findElement(By.xpath("//div[1][@class='display-board']//*[@x934110935862-x-test-hook-3]")).getText());
+    driver.findElement(By.xpath("//div[1][@class='display-board']//*[@x934110935862-x-test-hook-5]")).click();
+    Thread.sleep(3500);
+    assertEquals("Marco", driver.findElement(By.xpath("//div[2][@class='mrgnbtm']/app-users[1]/div[1]//*[@x934112684301-x-test-hook-11][4]//*[@x934112684301-x-test-hook-13]")).getText());
   }
 
 
