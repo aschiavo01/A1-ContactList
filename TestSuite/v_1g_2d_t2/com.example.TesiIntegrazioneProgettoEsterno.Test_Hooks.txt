@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 9.553 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks
-test_loc_Hooks_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks)  Time elapsed: 9.476 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[Marco]> but was:<[]>
-	at com.example.TesiIntegrazioneProgettoEsterno.Test_Hooks.test_loc_Hooks_release_1_1(Test_Hooks.java:56)
-
