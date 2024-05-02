@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplate
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.674 s <<< FAILURE! - in com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplate
+test_loc_myXPathHookRelativeTemplate_release_1_1(com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplate)  Time elapsed: 1.648 s  <<< ERROR!
+org.openqa.selenium.WebDriverException: 
+unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome-headless-shell=124.0.6367.60)
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'fv-az738-778', ip: '10.1.0.77', os.name: 'Linux', os.arch: 'amd64', os.version: '6.5.0-1018-azure', java.version: '1.8.0_412'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 124.0.6367.60, chrome: {chromedriverVersion: 124.0.6367.91 (51df0e5e17a8..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:32989}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4db9bf51c82569aa704378be1f1c172f
+	at com.example.TesiIntegrazioneProgettoEsterno.Test_myXPathHookRelativeTemplate.test_loc_myXPathHookRelativeTemplate_release_1_1(Test_myXPathHookRelativeTemplate.java:40)
+
