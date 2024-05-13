@@ -6,8 +6,6 @@ name: Github Actions - main (On Release)
 on:
   release:
     types: [published]
-
-
  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -43,7 +41,7 @@ jobs:
       - name: Step 3 - Creazione directory Test Suite
         run: |
           ls -a
-          if [ ! -d "/home/runner/work/HookTestRepo/HookTestRepo/TestSuite" ]; then
+          if [ ! -d "/home/runner/work/A1-ContactList/A1-ContactList/TestSuite" ]; then
             echo "Vedi se sono dentro l'if numero 1"
             sudo mkdir TestSuite
           fi
@@ -71,23 +69,23 @@ jobs:
                         
       - name: Step 7 - mvn clean install BACK-END
         if: ${{steps.cache-mvn.out.cache-hit != 'true'}}
-        working-directory: /home/runner/work/HookTestRepo/HookTestRepo/insert-here-your-web-app/angular-java-example-master
+        working-directory: /home/runner/work/A1-ContactList/A1-ContactList/insert-here-your-web-app/angular-java-example-master
         run: mvn clean install
 
              
       - name: Step 7.1 - SEZIONE BACK-END - Esegui Applicazione Spring Boot tramite jar
         run:  |
-            cd /home/runner/work/HookTestRepo/HookTestRepo
+            cd /home/runner/work/A1-ContactList/A1-ContactList
             bash startBackEnd.sh
             
       - name: Step 8 - npm install FRONT-END
-        working-directory: /home/runner/work/HookTestRepo/HookTestRepo/insert-here-your-web-app/angular-java-example-master/src/main/ui
+        working-directory: /home/runner/work/A1-ContactList/A1-ContactList/insert-here-your-web-app/angular-java-example-master/src/main/ui
         run: npm install
         
            
       - name: Step 8.1 - SEZIONE FRONT-END - Esegui Applicazione FE tramite nmp
         run:  |
-            cd /home/runner/work/HookTestRepo/HookTestRepo
+            cd /home/runner/work/A1-ContactList/A1-ContactList
             bash startFrontEnd.sh
       
                               
@@ -103,12 +101,12 @@ jobs:
             
       - name: Step 10 - Eseguire test maven
         run:  |
-            cd /home/runner/work/HookTestRepo/HookTestRepo/project-test-headless
+            cd /home/runner/work/A1-ContactList/A1-ContactList/project-test-headless
             bash eseguiTest.sh
                  
       - name: Step 11 - Visualizzare report test
         run: |
-            cd /home/runner/work/HookTestRepo/HookTestRepo/project-test-headless/target/surefire-reports
+            cd /home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target/surefire-reports
             ls -a 
             echo "Visualizziamo adesso tutti i report txt ottenuti dalle nostre test suite"
             cat *.txt
@@ -116,14 +114,14 @@ jobs:
        
       - name: Step 12 - Spostamento report in directory corretta
         run: |  
-          cd /home/runner/work/HookTestRepo/HookTestRepo/project-test-headless/target
+          cd /home/runner/work/A1-ContactList/A1-ContactList/project-test-headless/target
           echo "Visualizziamo se c'è la cartella surefire-reports"
           ls -a 
           echo "Rinominare la cartella surefire-reports in nome del tag della release creata"
           sudo mv surefire-reports ${GITHUB_REF#refs/tags/}
           echo "Vediamo se la ha rinominata:"
           ls -a
-          sudo cp -r ${GITHUB_REF#refs/tags/} /home/runner/work/HookTestRepo/HookTestRepo/TestSuite
+          sudo cp -r ${GITHUB_REF#refs/tags/} /home/runner/work/A1-ContactList/A1-ContactList/TestSuite
           
       - name: Step 13 - Push dei report
         run: |
@@ -134,7 +132,7 @@ jobs:
           git config --global user.password "${{ secrets.PASSWORD_ACCOUNT_GITHUB }}"
           git status
           echo "Andiamo ad aggiungere la cartella dei report"
-          git add /home/runner/work/HookTestRepo/HookTestRepo/TestSuite
+          git add /home/runner/work/A1-ContactList/A1-ContactList/TestSuite
           echo "Cartella aggiunta!"
           git commit -m "Eseguendo un primo commit dal file yml"
           git tag --list
@@ -159,7 +157,7 @@ jobs:
           cd miglioramentoReportTest/target
           ls -a
           echo "Proviamo ad eseguire il file jar, passandogli come args[0] la directory dei report da analizzare e come args[1] il nome del report complessivo xls da generare"
-          java -jar miglioramentoReportTest-0.0.1-jarReportTest.jar /home/runner/work/HookTestRepo/HookTestRepo/TestSuite/${GITHUB_REF#refs/tags/} tabellaReportTest
+          java -jar miglioramentoReportTest-0.0.1-jarReportTest.jar /home/runner/work/A1-ContactList/A1-ContactList/TestSuite/${GITHUB_REF#refs/tags/} tabellaReportTest
           echo "File jar eseguito!!!"
           echo "Vediamo il file xls di report unificato se c'è"
           ls -a 
@@ -169,7 +167,7 @@ jobs:
       - name: Step 16 - Spostamento report xls in cartella dei report txt
         run: | 
           cd miglioramentoReportTest/target
-          sudo cp ${GITHUB_REF#refs/tags/}.xls /home/runner/work/HookTestRepo/HookTestRepo/TestSuite/${GITHUB_REF#refs/tags/}
+          sudo cp ${GITHUB_REF#refs/tags/}.xls /home/runner/work/A1-ContactList/A1-ContactList/TestSuite/${GITHUB_REF#refs/tags/}
           
       - name: Step 17 - Commit del report xls
         run: | 
@@ -180,9 +178,9 @@ jobs:
           git config --global user.password "${{ secrets.PASSWORD_ACCOUNT_GITHUB }}"
           git status
           echo "Andiamo ad aggiungere la cartella dei report"
-          git add /home/runner/work/HookTestRepo/HookTestRepo/TestSuite
+          git add /home/runner/work/A1-ContactList/A1-ContactList/TestSuite
           echo "Cartella aggiunta!"
-          cd /home/runner/work/HookTestRepo/HookTestRepo
+          cd /home/runner/work/A1-ContactList/A1-ContactList
           echo "`date +%Y-%m-%d_%H-%M-%S`" > timeCommit.txt
           git add timeCommit.txt
           git commit -m "Commit dal file main.yml"
