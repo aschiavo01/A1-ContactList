@@ -1,0 +1,3 @@
+[submodule "automated-test/repo"]
+	path = automated-test/repo
+	url = https://github.com/ares-17/locators-automated-tests.git
