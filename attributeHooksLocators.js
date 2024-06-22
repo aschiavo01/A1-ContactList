@@ -781,71 +781,9 @@ LocatorBuilders.add('myXPathHookRelativeTemplate', function(e, opt_contextNode) 
 	return xpathBuilders.prefix + locator;
 }) 
 
-/* not working
-LocatorBuilders.add('myXPathHookRelativeTemplateFromParent', function(e, opt_contextNode) {
-	let locator = null;
-	while (e !== document) {
-		let hookName = getAttributeHook(e);
-		if (hookName) {
-			const templateRoot = hookName.indexOf(templatePrefix) >= 0;
-			if(templateRoot){
-				locator = this.relativeXPathFromParent(e) + (locator || '');
-			} else {
-				const siblings = getAllSiblings(e, sameHookFilter(hookName));
-				const index = siblings.length > 1 ? siblings.indexOf(e) + 1 : 0;
-
-				if (!locator || siblings.length > 1) { //first loop (target element) or more siblings found
-					locator = xpathBuilders.elementLocator(hookName, index) + (locator || '');
-				}
-			}
-		}
-		e = e.parentNode;
-	}
-	const prefix = locator.startsWith("/") ? '/' : '';
-	return xpathBuilders.prefix + `${prefix}${locator}`;
-}) 
-*/
-
-function getRelativePathsFromLocator(locator){
-	const relativeLocators = [];
-	const parts = locator.split("//*");
-	for(let i = 0; i < parts.length; i++){
-	  if(parts[i] !== undefined && parts[i] !== null && parts[i] !== ""){
-		console.log(parts[i]);
-		const selectedChars = locator.lastIndexOf(parts[i]) + parts[i].length;
-		relativeLocators[i] = locator.substring(0, selectedChars);
-	  }
-	}
-	return relativeLocators;
-}
-
-
-LocatorBuilders.add('myXPathHookRelativeTemplateFromParentRegex', function(e, opt_contextNode) {
-	const filterEmpties = (array) => array?.filter(hook => (hook !== null && hook !== undefined && hook !== ""));
-
-	const locatorXPathHook = this.myLocatorBuilder(xpathBuilders)(e);
-	const relativeLocators = filterEmpties(getRelativePathsFromLocator(locatorXPathHook));
-	const hooks = filterEmpties(locatorXPathHook.split('//*'));
-
-	let result = '';
-	for(let i = 0; i < hooks.length; i++){
-		if(hooks[i]?.includes(templatePrefix)){
-			const HTMLelement = myFindElement(relativeLocators[i]);
-			const xPathRelative = this.relativeXPathFromParent(HTMLelement);
-			result = `${result}${xPathRelative}`;
-		} else {
-			result = `${result}//*${hooks[i]}`;
-		}
-	}
-	const prefix = result.startsWith("/") ? '/' : '';
-	return `${prefix}${result}`;
-})
-
 //this function I set the order in which I want katalon to return the locators
 LocatorBuilders.setPreferredOrder([
-	'myXPathHookRelativeTemplate', 
-	//'myXPathHookRelativeTemplateFromParent', 
-	'myXPathHookRelativeTemplateFromParentRegex',
+	'myXPathHookRelativeTemplate',
 	'myXPathHook', 
 	'myXpathRel',
 	'Robula',
