@@ -23,7 +23,7 @@ private static StringBuffer verificationErrors = new StringBuffer();
 	  public void setUp() throws Exception {
 		
 		  // Init chromedriver
-		  //String chromeDriverPath = "/home/runner/work/HookTestRepo/HookTestRepo/chromedriver_v94_linux64/chromedriver";
+		  //String chromeDriverPath = "/home/runner/work/A1-ContactList/A1-ContactList/chromedriver_v94_linux64/chromedriver";
 		  //System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		  WebDriverManager.chromedriver().setup();
 		  System.setProperty("webdriver.chrome.whitelistedIps", "");
@@ -49,10 +49,10 @@ private static StringBuffer verificationErrors = new StringBuffer();
     driver.findElement(By.xpath("//*[@x934114515538-x-test-tpl-1]//*[@x934114515538-x-test-hook-9]//*[@x934107962964-x-test-tpl-2]//*[@x934107962964-x-test-hook-17]")).clear();
     driver.findElement(By.xpath("//*[@x934114515538-x-test-tpl-1]//*[@x934114515538-x-test-hook-9]//*[@x934107962964-x-test-tpl-2]//*[@x934107962964-x-test-hook-17]")).sendKeys("ciao@ciao.it");
     driver.findElement(By.xpath("//*[@x934114515538-x-test-tpl-1]//*[@x934114515538-x-test-hook-9]//*[@x934107962964-x-test-tpl-2]//*[@x934107962964-x-test-hook-18]")).click();
-    driver.findElement(By.xpath("//*[@x934114515538-x-test-tpl-1]//*[@x934114515538-x-test-hook-9]//*[@x934107962964-x-test-tpl-2]//*[@x934107962964-x-test-hook-20]//*[@x934110935862-x-test-tpl-1]//*[@x934110935862-x-test-hook-5]")).click();
-    driver.get("http://localhost:3001/");
     Thread.sleep(3500);
-    assertEquals("4",driver.findElement(By.xpath("//*[@x934114515538-x-test-tpl-1]//*[@x934114515538-x-test-hook-9]//*[@x934107962964-x-test-tpl-2]//*[@x934107962964-x-test-hook-20]//*[@x934110935862-x-test-tpl-1]//*[@x934110935862-x-test-hook-3]")).getText());
+	assertEquals("4",driver.findElement(By.xpath("//*[@x934114515538-x-test-tpl-1]//*[@x934114515538-x-test-hook-9]//*[@x934107962964-x-test-tpl-2]//*[@x934107962964-x-test-hook-20]//*[@x934110935862-x-test-tpl-1]//*[@x934110935862-x-test-hook-3]")).getText());
+    driver.findElement(By.xpath("//*[@x934114515538-x-test-tpl-1]//*[@x934114515538-x-test-hook-9]//*[@x934107962964-x-test-tpl-2]//*[@x934107962964-x-test-hook-20]//*[@x934110935862-x-test-tpl-1]//*[@x934110935862-x-test-hook-5]")).click();
+    Thread.sleep(3500);
     assertEquals("Marco",driver.findElement(By.xpath("//*[@x934114515538-x-test-tpl-1]//*[@x934114515538-x-test-hook-9]//*[@x934107962964-x-test-tpl-21]//*[@x934107962964-x-test-hook-22]//*[@x934112684301-x-test-tpl-1]//*[@x934112684301-x-test-hook-11][4]//*[@x934112684301-x-test-hook-13]")).getText());
   }
 
